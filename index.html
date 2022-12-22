@@ -148,8 +148,7 @@ Short|Dec|Hex|Picture|Caret|Escape|Long
     ||124| 7C|       |     |      |    
     }|125| 7D|       |     |      |    
     ~|126| 7E|       |     |      |    
-  DEL|127| 7F|      ␡|   ^?|      |Delete
-    <pre>
+  DEL|127| 7F|      ␡|   ^?|      |Delete</pre>
     </details>
 
     <details>
@@ -166,8 +165,7 @@ Colour Name|#RRGGBB|0xRRGGBB|0xffRRGGBB|0xRRGGBBff
        blue|#3352e1|0x3352e1|0xff3352e1|0x3352e1ff
     magenta|#533354|0x533354|0xff533354|0x533354ff
        cyan|#5a7d8b|0x5a7d8b|0xff5a7d8b|0x5a7d8bff
-      white|#eeeeee|0xeeeeee|0xffeeeeee|0xeeeeeeff
-    </pre>
+      white|#eeeeee|0xeeeeee|0xffeeeeee|0xeeeeeeff</pre>
     <p>
     An somewhat sucessfully attempt to create more colours that are distinct-ish
     from the ones above, at least to my eyes. YMMV.
@@ -181,8 +179,38 @@ Colour Name|#rrggbb|0xrrggbb|0xffrrggbb|0xrrggbbff
    alt blue|#0037ff|0x0037ff|0xff0037ff|0x0037ffff
 alt magenta|#a968ab|0xa968ab|0xffa968ab|0xa968abff
    alt cyan|#4891ae|0x4891ae|0xff4891ae|0x4891aeff
-  alt white|#ffffff|0xffffff|0xffffffff|0xffffffff
-    </pre>
+  alt white|#ffffff|0xffffff|0xffffffff|0xffffffff</pre>
+    </details>
+
+    <details>
+    <summary> Nuclear Dark Mode </summary>
+    <p>
+    <a href = "https://gist.github.com/Ryan1729/e7394e02d7476889a4d76d9670d9f169">
+        gist
+    </a>
+    </p>
+    <p>
+    Open the browser console and paste the following inside it.
+    </p>
+    <pre>
+var nuclearDarkMode = (root = document, seen = {}) => {
+  if (seen[root]) {
+     return;
+  }
+  seen[root] = true
+  var items = root.getElementsByTagName("*");
+  for (var i = items.length; i--;) {
+      var item = items[i]
+      item.style["background-color"] = "#222"
+      item.style["color"] = "#eee"
+      if (item.nodeName == "IFRAME") {
+        item.parentNode.removeChild(item)
+      }
+
+      nuclearDarkMode(root, seen)
+  }
+}
+nuclearDarkMode()</pre>
     </details>
 </body>
 </html>
