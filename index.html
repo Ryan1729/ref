@@ -237,5 +237,25 @@ a:visited {color: #666;}
 &lt;/body&gt;
 &lt;/html&gt;
     </pre>
+    </details>
+
+    <details>
+    <summary> Calculate Factors </summary>
+
+    <input type="number" id="factors-text" min="1" >
+    <button id="factors-submit" >
+        Submit
+    </button>
+    <div id="factors-output"></div>
+
+    </details>
+    <script src='./factors.js' ></script>
+    <script>
+        factors.setup({
+            text: document.getElementById("factors-text"),
+            submit: document.getElementById("factors-submit"),
+            output: document.getElementById("factors-output"),
+        });
+    </script>
 </body>
 </html>
