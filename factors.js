@@ -19,7 +19,6 @@ const factors = (() => {
     }
 
     // Based on https://en.wikipedia.org/wiki/Wheel_factorization
-    // TODO Look up more primes and generate appropriate `inc` array.
 
     const primes = [2, 3, 5]
     const nextPrime = 7
