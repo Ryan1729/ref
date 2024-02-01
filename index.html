@@ -257,5 +257,52 @@ a:visited {color: #666;}
             output: document.getElementById("factors-output"),
         });
     </script>
+
+    <details>
+    <summary> Base Conversion </summary>
+
+    <div style="display: flex; flex-flow: column;" >
+        <div style="display: flex; flex-flow: column; margin-bottom: 2ex" >
+            <label for="base-conversion-source-base">Interpret as base</label>
+            <input type="number" id="base-conversion-source-base" min="2" value="10" >
+        </div>
+
+        <div style="display: flex; flex-flow: column; margin-bottom: 2ex">
+            <label for="base-conversion-target-base">Convert to base</label>
+            <input type="number" id="base-conversion-target-base" min="2" value="16" >
+        </div>
+
+        <div style="display: flex; flex-flow: column; margin-bottom: 2ex">
+            <label for="base-conversion-input">Input</label>
+            <input type="text" id="base-conversion-input" >
+        </div>
+
+        <div style="display: flex; flex-flow: column; margin-bottom: 2ex">
+            <label for="base-conversion-output">Output</label>
+            <input type="text" id="base-conversion-output" >
+        </div>
+
+        <button id="base-conversion-text-submit" style="margin-bottom: 2ex" >
+            Convert
+        </button>
+
+        <button id="base-conversion-text-swap" >
+            Swap input/output bases
+        </button>
+    <div>
+    </details>
+
+    <script src='./base-conversion.js' ></script>
+    <script>
+        baseConversion.setup({
+            source: document.getElementById("base-conversion-source-base"),
+            target: document.getElementById("base-conversion-target-base"),
+            input: document.getElementById("base-conversion-input"),
+            output: document.getElementById("base-conversion-output"),
+            submit: document.getElementById("base-conversion-text-submit"),
+            swap: document.getElementById("base-conversion-text-swap"),
+        });
+    </script>
+
 </body>
 </html>
