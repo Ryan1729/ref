@@ -17,24 +17,39 @@ const baseConversion = (() => {
         });
 
         submit.addEventListener('click', (event) => {
+            let inputString = input.value
+
+            if (inputString.toLowerCase().startsWith("0x")) {
+                inputString = inputString.substring(2)
+                source.valueAsNumber = 16
+            }
+
+            if (inputString.toLowerCase().startsWith("0b")) {
+                inputString = inputString.substring(2)
+                source.valueAsNumber = 2
+            }
+
+            if (inputString.toLowerCase().startsWith("0o")) {
+                inputString = inputString.substring(2)
+                source.valueAsNumber = 8
+            }
+
             const sourceBase = source.valueAsNumber
             const targetBase = target.valueAsNumber
-
-            const inputString = input.value
-
-            // TODO handle 0x, 0b prefixes in input by setting the source base automatically on submit
 
             const inputNumber = parseInt(inputString, sourceBase)
 
             const converted = inputNumber.toString(targetBase)
 
-            const prefix = targetBase === 16
+            const outputPrefix = targetBase === 16
                 ? "0x"
                 : targetBase === 2
                     ? "0b"
-                    : ""
+                    : targetBase === 8
+                        ? "0o"
+                        : ""
 
-            output.value = prefix + converted
+            output.value = outputPrefix + converted
         });
     }
 
