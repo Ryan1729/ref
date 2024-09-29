@@ -312,5 +312,18 @@ a:visited {color: #666;}
         });
     </script>
 
+    <details>
+    <summary> Selected Unicode chracters </summary>
+    <div id="selected-unicode-chracters-root"></div>
+    <script src='./selected-unicode.js' ></script>
+    <script>
+        selectedUnicode.setup({
+            root: document.getElementById("selected-unicode-chracters-root"),
+            chars: ["✔", "✘", "🐍", "👋", "👍", "👔", "📋", "😎", "🤓", "🥁"],
+        });
+    </script>
+    
+    </details>
+
 </body>
 </html>
